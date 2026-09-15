@@ -54,4 +54,29 @@ systemctl start jenkins
 echo "Jenkins status:"
 systemctl --no-pager status jenkins || true
 
+
+# --------------------------------------------------
+# 7. Installing terraform
+# --------------------------------------------------
+
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+sudo yum -y install terraform
+
+# --------------------------------------------------
+# 8. Verify Terraform
+# --------------------------------------------------
+
+echo "Terraform version:"
+terraform version
+
+echo "Terraform path:"
+which terraform
+
+echo "Terraform status:"
+terraform version || true
+
+echo "Terraform path:"
+which terraform || true
+
 echo "===== Bootstrap completed ====="
